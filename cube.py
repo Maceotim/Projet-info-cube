@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 #Conservation du moment :
 # m1v1 + m2v2 = cste
 
-class Cube:
+class Cube :
 
     def __init__(self, masse, vitesse, abscisse):
         self.masse = masse
@@ -18,6 +18,7 @@ class Cube:
 cube1 = Cube(1, 0, 10)
 cube2 = Cube(2, -1, 200)
 
-energie = 0.5*(cube1.masse*cube1.vitesse**2 + cube2.masse*cube2.vitesse**2)
-
-print(np.random.randint(10))
+def nouvelles_vitesses(va, vb) :
+    va2 = (cube1.masse*va - cube2.masse*(va - 2*vb))/(cube1.masse + cube2.masse)
+    vb2 = va + va2 - vb
+    return (va2, vb2)
